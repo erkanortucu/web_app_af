@@ -1137,13 +1137,15 @@ st.text('This is a web app to Technical Service Department Data')
 
 # Sidebar setup
 st.sidebar.title('Sidebar')
-fl = st.sidebar.file_uploader(":file_folder: Upload a file", type=(["csv", "txt", "xlsx", "xls"]))
+fl = st.sidebar.file_uploader(":file_folder: Upload an Excel file", type=(["xlsx", "xls"]))
+
 if fl is not None:
     filename = fl.name
     st.write(filename)
-    data = pd.read_excel(filename, engine="openpyxl")
+    data = pd.read_excel(fl, engine="openpyxl", dtype={'SERİ_NO': str})
+    # Continue with processing the data or displaying it as needed
 else:
-    st.warning("Please upload a file or enter a file path.")
+    st.warning("Please upload an Excel file.")
 
 
 #Sidebar navigation
