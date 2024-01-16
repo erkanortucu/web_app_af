@@ -1143,8 +1143,7 @@ if fl is not None:
     st.write(filename)
     data = pd.read_excel(filename, engine="openpyxl")
 else:
-    os.chdir(r"C:\Users\erkan\Desktop\Streamlit_learn\af_analysis")
-    data = pd.read_excel("af_dataset.xlsx", engine="openpyxl", dtype={'SERİ_NO': str})
+    st.warning("Please upload a file or enter a file path.")
 
 
 #Sidebar navigation
